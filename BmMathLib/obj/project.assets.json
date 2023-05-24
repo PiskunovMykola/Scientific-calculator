@@ -1,0 +1,326 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "Costura.Fody/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.0.0"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MathParser.org-mXparser/4.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        },
+        "runtime": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "Costura.Fody/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.0.0"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MathParser.org-mXparser/4.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        },
+        "runtime": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "Costura.Fody/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.0.0"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MathParser.org-mXparser/4.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        },
+        "runtime": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "Costura.Fody/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.0.0"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MathParser.org-mXparser/4.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        },
+        "runtime": {
+          "lib/net472/MathParser.org-mXparser.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Costura.Fody/4.1.0": {
+      "sha512": "MkW5aqhqNvuP6MiaaD5Yx8efXv+5ucsumRx+Nsn5b+PA4RnaxJLtXhGkm1N+Hi7sjkSlL8kl1klSS/7v2DxZHw==",
+      "type": "package",
+      "path": "costura.fody/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Costura.Fody.props",
+        "costura.fody.4.1.0.nupkg.sha512",
+        "costura.fody.nuspec",
+        "lib/net40/Costura.dll",
+        "lib/net40/Costura.xml",
+        "weaver/Costura.Fody.dll",
+        "weaver/Costura.Fody.xcf"
+      ]
+    },
+    "Fody/6.0.0": {
+      "sha512": "rH9Q7GapghyLYESfeCUOqh0S70eLc3FAikIgEEyGeng3JJf1M7mt2BUxjz93o3ipDXLrKn1s69AIEolmnVn8xg==",
+      "type": "package",
+      "path": "fody/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Fody.targets",
+        "fody.6.0.0.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
+    "MathParser.org-mXparser/4.4.2": {
+      "sha512": "V72hYZPG3VEt9NgjQ2gXxL55JWNlgi8TDLOgtoNu8raYVb+IRqgQTKssvDyGK5vzyvTi9WglmmbkEODhgeI4+w==",
+      "type": "package",
+      "path": "mathparser.org-mxparser/4.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.txt",
+        "images/icon.png",
+        "lib/net20/MathParser.org-mXparser.dll",
+        "lib/net35/MathParser.org-mXparser.dll",
+        "lib/net40/MathParser.org-mXparser.dll",
+        "lib/net45/MathParser.org-mXparser.dll",
+        "lib/net451/MathParser.org-mXparser.dll",
+        "lib/net452/MathParser.org-mXparser.dll",
+        "lib/net46/MathParser.org-mXparser.dll",
+        "lib/net461/MathParser.org-mXparser.dll",
+        "lib/net462/MathParser.org-mXparser.dll",
+        "lib/net47/MathParser.org-mXparser.dll",
+        "lib/net471/MathParser.org-mXparser.dll",
+        "lib/net472/MathParser.org-mXparser.dll",
+        "lib/net48/MathParser.org-mXparser.dll",
+        "lib/netcoreapp10/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp10/MathParser.org-mXparser.dll",
+        "lib/netcoreapp11/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp11/MathParser.org-mXparser.dll",
+        "lib/netcoreapp20/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp20/MathParser.org-mXparser.dll",
+        "lib/netcoreapp21/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp21/MathParser.org-mXparser.dll",
+        "lib/netcoreapp22/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp22/MathParser.org-mXparser.dll",
+        "lib/netcoreapp30/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp30/MathParser.org-mXparser.dll",
+        "lib/netcoreapp31/MathParser.org-mXparser.deps.json",
+        "lib/netcoreapp31/MathParser.org-mXparser.dll",
+        "lib/netstandard10/MathParser.org-mXparser.deps.json",
+        "lib/netstandard10/MathParser.org-mXparser.dll",
+        "lib/netstandard11/MathParser.org-mXparser.deps.json",
+        "lib/netstandard11/MathParser.org-mXparser.dll",
+        "lib/netstandard12/MathParser.org-mXparser.deps.json",
+        "lib/netstandard12/MathParser.org-mXparser.dll",
+        "lib/netstandard13/MathParser.org-mXparser.deps.json",
+        "lib/netstandard13/MathParser.org-mXparser.dll",
+        "lib/netstandard14/MathParser.org-mXparser.deps.json",
+        "lib/netstandard14/MathParser.org-mXparser.dll",
+        "lib/netstandard15/MathParser.org-mXparser.deps.json",
+        "lib/netstandard15/MathParser.org-mXparser.dll",
+        "lib/netstandard16/MathParser.org-mXparser.deps.json",
+        "lib/netstandard16/MathParser.org-mXparser.dll",
+        "lib/netstandard20/MathParser.org-mXparser.deps.json",
+        "lib/netstandard20/MathParser.org-mXparser.dll",
+        "lib/netstandard21/MathParser.org-mXparser.deps.json",
+        "lib/netstandard21/MathParser.org-mXparser.dll",
+        "lib/portable45-net45+win8+wpa81/MathParser.org-mXparser.dll",
+        "mathparser.org-mxparser.4.4.2.nupkg.sha512",
+        "mathparser.org-mxparser.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "Costura.Fody >= 4.1.0",
+      "MathParser.org-mXparser >= 4.4.2"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj",
+      "projectName": "BmMathLib",
+      "projectPath": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "Costura.Fody": {
+            "target": "Package",
+            "version": "[4.1.0, )"
+          },
+          "MathParser.org-mXparser": {
+            "target": "Package",
+            "version": "[4.4.2, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

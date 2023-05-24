@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj",
+        "projectName": "BmMathLib",
+        "projectPath": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Costura.Fody": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "MathParser.org-mXparser": {
+              "target": "Package",
+              "version": "[4.4.2, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

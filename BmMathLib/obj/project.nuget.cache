@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "WD/TdqP7/b57AKkB1GUmmH5EBhIJOCgu9ps246UgW23ly8PlvISKkY6+4fYrbmsuQezthjK530+3Gl0pmIApdw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\BmMathLib\\BmMathLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\costura.fody\\4.1.0\\costura.fody.4.1.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\fody\\6.0.0\\fody.6.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\mathparser.org-mxparser\\4.4.2\\mathparser.org-mxparser.4.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

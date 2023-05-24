@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "RdyKdqNQoE5vtdHyLd7EPzoYdwQS9VicHm8BR+aK06KqtUWG2TZslFw6jDRSn6Jw8SIGEqXI+2MKM/u85ygV2g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\Kalkulator\\wpf_calc_beta\\wpf_calc_beta.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\autoupdater.net.official\\1.6.3\\autoupdater.net.official.1.6.3.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\costura.fody\\4.1.0\\costura.fody.4.1.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\fody\\6.0.0\\fody.6.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\mahapps.metro\\2.3.3\\mahapps.metro.2.3.3.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\mathparser.org-mxparser\\4.4.2\\mathparser.org-mxparser.4.4.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512"
+  ],
+  "logs": []
+}

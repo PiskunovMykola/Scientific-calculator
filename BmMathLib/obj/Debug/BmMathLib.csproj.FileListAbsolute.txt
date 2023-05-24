@@ -1,0 +1,7 @@
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\bin\Debug\BmMathLib.dll
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\bin\Debug\BmMathLib.pdb
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\obj\Debug\BmMathLib.csproj.AssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\obj\Debug\BmMathLib.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\obj\Debug\BmMathLib.csproj.Fody.CopyLocal.cache
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\obj\Debug\BmMathLib.dll
+C:\Users\Lenovo\OneDrive\Рабочий стол\wpf-calculator-master\BmMathLib\obj\Debug\BmMathLib.pdb
