@@ -1,0 +1,535 @@
+﻿<mah:MetroWindow
+    x:Class="wpf_calc_beta.CalcBeta"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:microsoftWindowsThemes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    Width="380"
+    Height="500"
+    MinWidth="380"
+    MinHeight="500"
+    Margin="0"
+    mc:Ignorable="d"
+    BorderThickness="0"
+    WindowStartupLocation="CenterScreen"
+    Title="Calculator"
+    TitleCharacterCasing="Normal"
+    WindowTitleBrush="DarkSlateBlue"
+    TitleForeground="White"
+    NonActiveWindowTitleBrush="SlateGray"
+    NonActiveGlowBrush="Tomato"
+    GlowBrush="DarkSlateBlue"
+    ShowIconOnTitleBar="True"
+    Icon="../Res/calc16.ico" Background="#FF111111" KeyDown="KeyboardPress" KeepBorderOnMaximize="False" SizeChanged="ShowHistory">
+
+    <Window.Resources>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Segoe UI Light" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="#00111111" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="2"
+                            CornerRadius="3"
+                            Name="border">
+                            <Grid Margin="7,7,7,7">
+                                <microsoftWindowsThemes:ListBoxChrome x:Name="Bd"
+                                                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                                                      Background="{TemplateBinding Background}"
+                                                                      RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                                                      RenderFocused="{TemplateBinding IsKeyboardFocusWithin}"
+                                                                      SnapsToDevicePixels="true" Width="Auto"
+                                                                      Height="Auto">
+                                    <Viewbox HorizontalAlignment="Center">
+                                        <ContentPresenter
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Name="content" />
+                                    </Viewbox>
+                                </microsoftWindowsThemes:ListBoxChrome>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Control.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Duration="0:0:0.1"
+                                FillBehavior="HoldEnd"
+                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                To="#222222" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Control.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Duration="0:0:0.1"
+                                FillBehavior="HoldEnd"
+                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                To="#00111111" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="SizeAdapt" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#00111111" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Segoe UI Light" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="15,0,15,0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="VerticalContentAlignment" Value="Bottom" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Focusable" Value="True" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="SelectionBrush" Value="DarkSlateBlue" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <microsoftWindowsThemes:ListBoxChrome x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}"
+                                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                                              Background="{TemplateBinding Background}"
+                                                              RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                                              RenderFocused="{TemplateBinding IsKeyboardFocusWithin}"
+                                                              SnapsToDevicePixels="true">
+                            <Viewbox HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Decorator x:Name="PART_ContentHost"
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Viewbox>
+                        </microsoftWindowsThemes:ListBoxChrome>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HistoryItem" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#00111111" />
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Segoe UI Light" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="VerticalContentAlignment" Value="Bottom" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Focusable" Value="True" />
+            <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="SelectionBrush" Value="DarkSlateBlue" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TabControl Background="#00111111">
+            <TabItem Header="Calculator" mah:HeaderedControlHelper.HeaderFontSize="15">
+                <Grid Name="CalcGrid" Background="#111111">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="55*"/>
+                        <ColumnDefinition Width="45*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="70*" />
+                        <RowDefinition Height="0*" />
+                    </Grid.RowDefinitions>
+                    <Grid Row="2" Name="FuncGrid" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <Grid Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+                                Name="BtnSin"
+                                Click="ButtonClick"
+                                Foreground="CornflowerBlue" Grid.Column="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">sin</TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20">
+                                        (x)
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="CornflowerBlue"
+                                Name="BtnCos"
+                                Click="ButtonClick"
+                                Grid.Row="0" Grid.Column="1">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">cos</TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20">
+                                        (x)
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="CornflowerBlue"
+                                Name="BtnTan"
+                                Click="ButtonClick"
+                                Grid.Row="0" Grid.Column="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">tan</TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20">
+                                        (x)
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="CornflowerBlue"
+                                Name="BtnCtg"
+                                Click="ButtonClick"
+                                Grid.Row="0" Grid.Column="3">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">ctg</TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20">
+                                        (x)
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="White"
+                                Name="BtnDeg"
+                                Click="ButtonClick"
+                                Content="°" Grid.Row="0" Grid.Column="4" />
+                        </Grid>
+                        <Grid Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+                                Name="BtnLg"
+                                Click="ButtonClick"
+                                Foreground="LightBlue" Grid.Column="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">lg</TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20">
+                                        (x)
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="LightBlue"
+                                Name="BtnLn"
+                                Click="ButtonClick"
+                                Grid.Column="1">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">ln</TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20">
+                                        (x)
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="LightBlue"
+                                Name="BtnLog"
+                                Click="ButtonClick"
+                                Grid.Column="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextAlignment="Center">log</TextBlock>
+                                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="22">
+                                        (
+                                    </TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="22">
+                                        x
+                                    </TextBlock>
+                                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="22">
+                                        ,
+                                    </TextBlock>
+                                    <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="22">
+                                        y
+                                    </TextBlock>
+                                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="22">
+                                        )
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Foreground="MediumAquamarine"
+                                Name="BtnExp"
+                                Click="ButtonClick"
+                                Content="e" Grid.Column="3" />
+                            <Button
+                                Foreground="White"
+                                Name="BtnLogComma"
+                                Click="ButtonClick"
+                                Content="," Grid.Column="4" />
+                        </Grid>
+                    </Grid>
+                    <Grid Name="NumGrid" Grid.Row="1" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Button Content="С" Name="Clear" Click="ButtonClick" Foreground="MediumVioletRed" />
+                        <Button
+                            Grid.Row="0" Grid.Column="1"
+                            Content="←"
+                            Name="Remove"
+                            Click="ButtonClick"
+                            Foreground="PaleVioletRed" />
+                        <Button
+                            Grid.Row="0" Grid.Column="2"
+                            Content="("
+                            Name="OpenBr"
+                            Click="ButtonClick"
+                            Foreground="Gray" />
+                        <Button
+                            Grid.Row="0" Grid.Column="3"
+                            Content=")"
+                            Name="CloseBr"
+                            Click="ButtonClick"
+                            Foreground="Gray" />
+                        <Button
+                            Grid.Row="0" Grid.Column="4"
+                            Content="÷"
+                            Name="BtnDivide"
+                            Click="ButtonClick"
+                            Foreground="Orange" />
+                        <Button
+                            Grid.Row="2" Grid.Column="0"
+                            Click="ButtonClick"
+                            Name="Pow"
+                            Foreground="LightCoral">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="Gray">
+                                    <Run Text="x" />
+                                </TextBlock>
+                                <TextBlock FontSize="14">
+                                    <Run Text="y" />
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Grid.Row="1"
+                            Name="BtnOne"
+                            Grid.Column="1"
+                            Content="1" Click="ButtonClick" />
+                        <Button
+                            Grid.Row="1"
+                            Name="BtnTwo"
+                            Grid.Column="2"
+                            Content="2" Click="ButtonClick" />
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Name="BtnThree"
+                            Click="ButtonClick"
+                            Content="3" />
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            Name="BtnMult"
+                            Content="×"
+                            Click="ButtonClick"
+                            Foreground="Orange" />
+                        <Button
+                            Grid.Row="1" Grid.Column="0"
+                            Click="ButtonClick"
+                            Name="BtnSqrt"
+                            Foreground="LightCoral">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock TextAlignment="Center">√</TextBlock>
+                                <TextBlock Foreground="Gray" TextAlignment="Center" VerticalAlignment="Center"
+                                           FontSize="20">
+                                    (x)
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Click="ButtonClick"
+                            Name="BtnFour"
+                            Content="4" />
+                        <Button
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Click="ButtonClick"
+                            Name="BtnFive"
+                            Content="5" />
+                        <Button
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Click="ButtonClick"
+                            Name="BtnSix"
+                            Content="6" />
+                        <Button
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            Content="-"
+                            Click="ButtonClick"
+                            Name="BtnMinus"
+                            Foreground="Orange" />
+                        <Button
+                            Grid.Row="3" Grid.Column="0"
+                            Click="ButtonClick"
+                            Name="BtnFact"
+                            Foreground="LightCoral">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="Gray" TextAlignment="Center">x</TextBlock>
+                                <TextBlock TextAlignment="Center">!</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Name="BtnSeven"
+                            Click="ButtonClick"
+                            Content="7" />
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Name="BtnEight"
+                            Click="ButtonClick"
+                            Content="8" />
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Name="BtnNine"
+                            Click="ButtonClick"
+                            Content="9" />
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            Content="+"
+                            Name="BtnPlus"
+                            Click="ButtonClick"
+                            Foreground="Orange" />
+                        <Button
+                            Content="π"
+                            Name="BtnPi"
+                            Click="ButtonClick"
+                            Foreground="MediumAquamarine" Grid.Column="0" Grid.Row="4" />
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            FontSize="20"
+                            Foreground="PaleGoldenrod"
+                            Click="FunctionShowClick"
+                            Content="funcs" />
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            Name="BtnZero"
+                            Click="ButtonClick"
+                            Content="0" />
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Click="ButtonClick"
+                            Name="BtnDot"
+                            Content="." />
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="4"
+                            Name="BtnEqual"
+                            Content="="
+                            Click="ButtonClick"
+                            Foreground="Orange" />
+                    </Grid>
+                    <Grid Name="TextBoxes" Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*" />
+                            <RowDefinition Height="50*" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            Style="{StaticResource SizeAdapt}"
+                            Grid.Row="1"
+                            Name="ResultTb"
+                            FontSize="35"
+                            Foreground="#999999"
+                            Text="Result"
+                            TextWrapping="Wrap" Margin="10,0" />
+                        <TextBox
+                            Grid.Row="0" Style="{StaticResource SizeAdapt}"
+                            Name="MathTb"
+                            FontSize="45"
+                            Text="Expression"
+                            TextWrapping="Wrap" Margin="10,0" />
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.RowSpan="2">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ItemsControl Name="HistoryList" ItemsSource="{Binding Items}" FlowDirection="RightToLeft">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="75*" />
+                                                <RowDefinition Height="25*" />
+                                            </Grid.RowDefinitions>
+                                            <TextBox Grid.Row="0" Style="{StaticResource HistoryItem}" FontSize="24" Text="{Binding Expression}"/>
+                                            <TextBox Grid.Row="1" Style="{StaticResource HistoryItem}" FontSize="12" Foreground="Gray" Text="{Binding Result}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings" mah:HeaderedControlHelper.HeaderFontSize="15" IsEnabled="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="130*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Grid.Row="0" Name="ChBoxSave" Content="Save calculator state" Checked="CheckBoxClick" Unchecked="CheckBoxClick" Margin="0,0,0,29" Grid.RowSpan="2"/>
+                    <CheckBox Grid.Row="1" Name="ChBoxUpdate" Content="Check for updates" Checked="CheckBoxClick" Unchecked="CheckBoxClick" Margin="0,1,0,0" Height="24" VerticalAlignment="Top"/>
+                    <Label Grid.Row="3" Name ="lVer" Foreground="#555555" Content="Version" HorizontalContentAlignment="Center"></Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</mah:MetroWindow>
